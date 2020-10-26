@@ -1,7 +1,7 @@
 /node_modules
 /.idea
 *.iml
-*.ts
 powerprompt.iml
+test.ts
 test.js
 test.js.map
