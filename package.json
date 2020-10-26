@@ -1,6 +1,6 @@
 {
     "name":"powerprompt",
-    "version":"1.0.2",
+    "version":"1.0.3",
     "description":"A lightweight Prompt for working with Terminal",
     "main":"index.js",
     "scripts":{
