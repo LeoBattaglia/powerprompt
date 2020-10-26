@@ -120,7 +120,7 @@ class PowerPrompt {
             });
         });
         let result = await inputStream;
-        process.stdin.removeAllListeners();
+        process.stdin.on("keypress", (str, key) => { });
         process.stdin.setRawMode(false);
         return result;
     }
@@ -181,7 +181,7 @@ class PowerPrompt {
             });
         });
         let result = await inputStream;
-        process.stdin.removeAllListeners();
+        process.stdin.on("keypress", (str, key) => { });
         process.stdin.setRawMode(false);
         return result;
     }
