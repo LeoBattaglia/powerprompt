@@ -4,6 +4,7 @@ const func          = require("./lib/functions");
 const readline        = require("readline");
 
 readline.emitKeypressEvents(process.stdin);
+const stdin = process.stdin;
 
 export class PowerPrompt{
     constructor(){}
@@ -21,9 +22,9 @@ export class PowerPrompt{
         charTrue = charTrue.toLowerCase();
         charFalse = charFalse.toLowerCase();
         func.log(output + config.colors.command + " (" + charTrue + "|" + charFalse + ")", config.colors.input, false);
-        process.stdin.setRawMode(true);
+        stdin.setRawMode(true);
         let inputStream = new Promise((resolve) => {
-            process.stdin.on("keypress", (str, key) => {
+            stdin.on("keypress", (str, key) => {
                 let input:string = key.name.toString();
                 input = func.removeTabsAndBreaks(input);
                 if(abortByWrongChar){
@@ -36,7 +37,7 @@ export class PowerPrompt{
             });
         });
         let result = await inputStream;
-        process.stdin.setRawMode(false);
+        stdin.setRawMode(false);
         ansi.left(5);
         ansi.clearLineToEnd();
         func.printChoose(result, strTrue, strFalse);
@@ -47,7 +48,7 @@ export class PowerPrompt{
         func.log(output + " ", config.colors.command, false);
         ansi.log(config.colors.input);
         let inputStream = new Promise((resolve) => {
-            process.stdin.once("data", function(input){
+            stdin.once("data", function(input){
                 resolve(input);
             });
         });
@@ -71,10 +72,10 @@ export class PowerPrompt{
         })
         ansi.previousLine(options.length - 1);
         ansi.right(1);
-        process.stdin.setRawMode(true);
+        stdin.setRawMode(true);
         let position:number = options.length - 1;
         let inputStream = new Promise((resolve) => {
-            process.stdin.on("keypress", (str, key) => {
+            stdin.on("keypress", (str, key) => {
                 let index:number;
                 switch(key.name){
                     case "down":
@@ -121,8 +122,8 @@ export class PowerPrompt{
             });
         });
         let result = await inputStream;
-        process.stdin.on("keypress", (str, key) => {});
-        process.stdin.setRawMode(false);
+        stdin.setRawMode(false);
+        stdin.removeAllListeners("keypress");
         return result;
     }
 
@@ -163,10 +164,10 @@ export class PowerPrompt{
         func.printOptions(options, true);
         ansi.previousLine(options.length - 1);
         ansi.right(1);
-        process.stdin.setRawMode(true);
+        stdin.setRawMode(true);
         let position:number = options.length - 1;
         let inputStream = new Promise((resolve) => {
-            process.stdin.on("keypress", (str, key) => {
+            stdin.on("keypress", (str, key) => {
                 switch(key.name){
                     case "down":
                         if(position > 0){
@@ -191,8 +192,8 @@ export class PowerPrompt{
             });
         });
         let result = await inputStream;
-        process.stdin.on("keypress", (str, key) => {});
-        process.stdin.setRawMode(false);
+        stdin.setRawMode(false);
+        stdin.removeAllListeners("keypress");
         return result;
     }
 }
