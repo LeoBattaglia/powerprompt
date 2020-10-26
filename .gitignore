@@ -2,3 +2,6 @@
 /.idea
 *.iml
 *.ts
+powerprompt.iml
+test.js
+test.js.map
