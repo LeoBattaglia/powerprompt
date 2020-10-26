@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.PowerPrompt = void 0;
 const functions_1 = require("./lib/functions");
 const ansi = require("./lib/ansi");
 const config = require("./lib/config.json");
@@ -167,5 +168,5 @@ class PowerPrompt {
         return result;
     }
 }
-exports.default = new PowerPrompt();
+exports.PowerPrompt = PowerPrompt;
 //# sourceMappingURL=index.js.map

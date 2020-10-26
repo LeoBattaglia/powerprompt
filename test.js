@@ -1,5 +1,7 @@
-const powerprompt = require("./index");
-const pp = new powerprompt();
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const index_1 = require("./index");
+const pp = new index_1.PowerPrompt();
 test();
 async function test() {
     pp.printLine();
