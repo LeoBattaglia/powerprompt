@@ -167,5 +167,5 @@ class PowerPrompt {
         return result;
     }
 }
-module.exports = PowerPrompt;
+exports.default = new PowerPrompt();
 //# sourceMappingURL=index.js.map
