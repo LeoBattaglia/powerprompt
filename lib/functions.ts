@@ -42,6 +42,10 @@ export function log(output:string, color:string, newLine:Boolean):void{
     }
 }
 
+function logCommand(output):void{
+    log(output, config.colors.command, true);
+}
+
 function logDefault(output):void{
     log(output, config.colors.default, true);
 }
@@ -50,24 +54,24 @@ function logError(name:string, output):void{
     log(getErrorMessage(name) + ": " + typeof output, config.colors.error, true);
 }
 
+function logInput(output):void{
+    log(output, config.colors.input, true);
+}
+
+function logOption(output):void{
+    log(output, config.colors.option, true);
+}
+
+function logSelected(output):void{
+    log(output, config.colors.selected, true);
+}
+
 function logTitle(output):void{
     log(output, config.colors.title, true);
 }
 
 export function print(output):void{
-    switch(typeof output){
-        case "boolean":
-            logDefault(output);
-            break;
-        case "number":
-            logDefault(output);
-            break;
-        case "string":
-            logDefault(output);
-            break;
-        default:
-            logError("unknown_type", output);
-    }
+    printType(output, logDefault);
 }
 
 export function printChoose(bool:Boolean, strTrue:string, strFalse):void{
@@ -82,8 +86,24 @@ export function printChoose(bool:Boolean, strTrue:string, strFalse):void{
     }
 }
 
+export function printCommand(output):void{
+    printType(output, logCommand);
+}
+
+export function printError(output):void{
+    printType(output, logError);
+}
+
+export function printInput(output):void{
+    printType(output, logInput);
+}
+
 export function printLine(){
     log(line, config.colors.line, true);
+}
+
+export function printOption(output):void{
+    printType(output, logOption);
 }
 
 export function printOptions(options:string[], selectFirst:Boolean):void{
@@ -102,16 +122,24 @@ export function printOptions(options:string[], selectFirst:Boolean):void{
     }
 }
 
+export function printSelected(output):void{
+    printType(output, logSelected);
+}
+
 export function printTitle(output):void{
+    printType(output, logTitle);
+}
+
+function printType(output, callback):void{
     switch(typeof output){
         case "boolean":
-            logTitle(output);
+            callback(output);
             break;
         case "number":
-            logTitle(output);
+            callback(output);
             break;
         case "string":
-            logTitle(output);
+            callback(output);
             break;
         default:
             logError("unknown_type", output);

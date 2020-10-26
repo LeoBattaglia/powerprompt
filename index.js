@@ -127,8 +127,23 @@ class PowerPrompt {
     print(output) {
         func.print(output);
     }
+    printCommand(output) {
+        func.printCommand(output);
+    }
+    printError(output) {
+        func.printError(output);
+    }
+    printInput(output) {
+        func.printInput(output);
+    }
     printLine() {
         func.printLine();
+    }
+    printOption(output) {
+        func.printOption(output);
+    }
+    printSelected(output) {
+        func.printSelected(output);
     }
     printTitle(output) {
         func.printTitle(output);

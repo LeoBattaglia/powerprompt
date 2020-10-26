@@ -134,8 +134,28 @@ export class PowerPrompt{
         func.print(output);
     }
 
+    printCommand(output):void{
+        func.printCommand(output);
+    }
+
+    printError(output):void{
+        func.printError(output);
+    }
+
+    printInput(output):void{
+        func.printInput(output);
+    }
+
     printLine():void{
         func.printLine();
+    }
+
+    printOption(output):void{
+        func.printOption(output);
+    }
+
+    printSelected(output):void{
+        func.printSelected(output);
     }
 
     printTitle(output):void{

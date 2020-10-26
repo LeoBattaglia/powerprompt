@@ -11,15 +11,20 @@ const pp = new PowerPrompt();
 --> Example: pp.printLine();
 ```
 
-## Methods
+## Public Methods
 - close
 - choose
 - input
 - multiSelect
 - print
+- printCommand
+- printError
+- printInput
 - printLine
+- printOption
+- printSelected
 - printTitle
 - select
 
-##Parameters
+## Parameters
 None
