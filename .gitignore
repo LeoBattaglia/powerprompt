@@ -3,5 +3,5 @@
 *.iml
 powerprompt.iml
 test.ts
-test.js
-test.js.map
+*.js
+*.js.map

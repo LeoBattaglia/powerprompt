@@ -153,7 +153,7 @@ export function removeTabsAndBreaks(str:string):string{
 }
 
 export function selectNextLine(previous:Boolean, options:string[], position:number):number{
-    ansi.left(1);
+    ansi.beginOfLine(0);
     let row:string = "[ ] " + options[options.length - position - 1];
     log(row, config.colors.option, false);
     if(previous){
@@ -170,7 +170,7 @@ export function selectNextLine(previous:Boolean, options:string[], position:numb
 }
 
 export function multiSelectNextLine(previous:Boolean, options:string[], selected:Boolean[], position:number):number{
-    ansi.left(1);
+    ansi.beginOfLine(0);
     let sel:Boolean = selected[selected.length - position - 1];
     let row :string;
     if(sel){

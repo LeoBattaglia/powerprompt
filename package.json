@@ -1,6 +1,6 @@
 {
     "name":"powerprompt",
-    "version":"1.0.8",
+    "version":"1.0.9",
     "description":"A simple and lightweight TypeScript-Class to create Terminal-Applications on node.js.",
     "main":"index.js",
     "scripts":{

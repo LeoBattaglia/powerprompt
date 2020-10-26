@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PowerPrompt = void 0;
-const functions_1 = require("./lib/functions");
 const ansi = require("./lib/ansi");
 const config = require("./lib/config.json");
 const func = require("./lib/functions");
@@ -108,12 +107,12 @@ class PowerPrompt {
                         if (selected[options.length - position - 1]) {
                             selected[options.length - position - 1] = false;
                             row = "[ ] " + options[options.length - position - 1];
-                            functions_1.log(row, config.colors.option, false);
+                            func.log(row, config.colors.option, false);
                         }
                         else {
                             selected[options.length - position - 1] = true;
                             row = "[X] " + options[options.length - position - 1];
-                            functions_1.log(row, config.colors.selected, false);
+                            func.log(row, config.colors.selected, false);
                         }
                         ansi.beginOfLine(1);
                         break;
@@ -121,6 +120,7 @@ class PowerPrompt {
             });
         });
         let result = await inputStream;
+        process.stdin.removeAllListeners();
         process.stdin.setRawMode(false);
         return result;
     }
@@ -181,6 +181,7 @@ class PowerPrompt {
             });
         });
         let result = await inputStream;
+        process.stdin.removeAllListeners();
         process.stdin.setRawMode(false);
         return result;
     }
