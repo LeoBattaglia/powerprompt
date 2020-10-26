@@ -9,9 +9,11 @@ const readline = require("readline");
 readline.emitKeypressEvents(process.stdin);
 class PowerPrompt {
     constructor() { }
-    close() {
+    close(exitProcess) {
         func.closeStdin();
-        process.exit(0);
+        if (exitProcess) {
+            process.exit(0);
+        }
     }
     async choose(output, charTrue, charFalse, strTrue, strFalse, abortByWrongChar) {
         charTrue = charTrue.length > 1 ? charTrue.substring(0, 1) : charTrue;

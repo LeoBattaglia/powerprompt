@@ -10,9 +10,11 @@ readline.emitKeypressEvents(process.stdin);
 export class PowerPrompt{
     constructor(){}
 
-    close(){
+    close(exitProcess:boolean){
         func.closeStdin();
-        process.exit(0);
+        if(exitProcess){
+            process.exit(0);
+        }
     }
 
     async choose(output:string, charTrue:string, charFalse:string, strTrue:string, strFalse, abortByWrongChar:Boolean){

@@ -24,7 +24,7 @@ async function test() {
     /*let multiselect = await pp.multiSelect("Select Options:", options, 0);
     pp.print("Your Input: " + multiselect);
     pp.printLine();*/
-    pp.close();
+    pp.close(true);
 }
 function test_function() {
 }

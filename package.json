@@ -1,7 +1,7 @@
 {
     "name":"powerprompt",
-    "version":"1.0.6",
-    "description":"A lightweight Prompt for working with Terminal",
+    "version":"1.0.7",
+    "description":"A simple and lightweight Package to make the work with Terminal easier.",
     "main":"index.js",
     "scripts":{
         "tsc":"tsc"
