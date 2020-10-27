@@ -20,6 +20,7 @@ Destroy stdin and exit process if necessary.
 ```
 pp.close(true);
 ```
+
 ### choose()
 Set prompt which lets the user choose between two options. 
 ##### Parameters:
@@ -34,6 +35,7 @@ Set prompt which lets the user choose between two options.
 let choose = await pp.choose("Choose X(=true) or Y(=false):", "x", "y", "X", "Y", false);
 pp.print("Your Input: " + choose);
 ```
+
 ### input()
 Set prompt for user-input.
 ##### Parameters:
@@ -43,6 +45,7 @@ Set prompt for user-input.
 let input = await pp.input("Give me Input >>");
 pp.print("Your Input: " + input);
 ```
+
 ### multiSelect()
 Set prompt which lets the user select 0 or more options.
 #### Parameters:
@@ -55,6 +58,7 @@ let options:string[] = ["Option 1", "Option 2", "Option 3"];
 let multiselect = await pp.multiSelect("Select Options:", options, 0);
 pp.print("Your Input: " + multiselect);
 ```
+
 ### print()
 Print output to stdout in default-color (white).
 #### Parameters:
@@ -63,6 +67,7 @@ Print output to stdout in default-color (white).
 ```
 pp.print("Default-Text");
 ```
+
 ### printCommand()
 Print output to stdout in command-color (green).
 #### Parameters:
@@ -71,6 +76,7 @@ Print output to stdout in command-color (green).
 ```
 pp.printCommand("Command-Text");
 ```
+
 ### printError()
 Print output to stdout in error-color (red).
 #### Parameters:
@@ -79,6 +85,7 @@ Print output to stdout in error-color (red).
 ```
 pp.printError("Error-Text");
 ```
+
 ### printInput()
 Print output to stdout in input-color (yellow).
 #### Parameters:
@@ -87,6 +94,7 @@ Print output to stdout in input-color (yellow).
 ```
 pp.printInput("Input-Text");
 ```
+
 ### printLine()
 Print a line to stdout in line-color (white).
 Line-width is defined in /lib/config.json
@@ -96,6 +104,7 @@ Line-width is defined in /lib/config.json
 ```
 pp.printLine();
 ```
+
 ### printOption()
 Print output to stdout in option-color (yellow).
 #### Parameters:
@@ -104,6 +113,7 @@ Print output to stdout in option-color (yellow).
 ```
 pp.printOption("Option-Text");
 ```
+
 ### printSelected()
 Print output to stdout in selected-color (cyan).
 #### Parameters:
@@ -112,6 +122,7 @@ Print output to stdout in selected-color (cyan).
 ```
 pp.printSelected("Selected-Text");
 ```
+
 ### printTitle()
 Print output to stdout in title-color (magenta).
 #### Parameters:
@@ -120,6 +131,7 @@ Print output to stdout in title-color (magenta).
 ```
 pp.printTitle("Title-Text");
 ```
+
 ### select()
 Set prompt which lets the user select one option.
 #### Parameters:
