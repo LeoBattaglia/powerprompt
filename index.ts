@@ -16,7 +16,7 @@ export class PowerPrompt{
         }
     }
 
-    async choose(output:string, charTrue:string, charFalse:string, strTrue:string, strFalse, abortByWrongChar:Boolean){
+    async choose(output:string, charTrue:string, charFalse:string, msgTrue:string, msgFalse, abortOnWrongChar:Boolean){
         charTrue = charTrue.length > 1 ? charTrue.substring(0, 1) : charTrue;
         charFalse = charFalse.length > 1 ? charFalse.substring(0, 1) : charFalse;
         charTrue = charTrue.toLowerCase();
@@ -27,7 +27,7 @@ export class PowerPrompt{
             stdin.on("keypress", (str, key) => {
                 let input:string = key.name.toString();
                 input = func.removeTabsAndBreaks(input);
-                if(abortByWrongChar){
+                if(abortOnWrongChar){
                     resolve(func.getChoose(input, charTrue, charFalse));
                 }else{
                     if(func.getChoose(input, charTrue, charFalse) !== undefined){
@@ -40,7 +40,7 @@ export class PowerPrompt{
         stdin.setRawMode(false);
         ansi.left(5);
         ansi.clearLineToEnd();
-        func.printChoose(result, strTrue, strFalse);
+        func.printChoose(result, msgTrue, msgFalse);
         return result;
     }
 

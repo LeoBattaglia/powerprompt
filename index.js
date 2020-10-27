@@ -15,7 +15,7 @@ class PowerPrompt {
             process.exit(0);
         }
     }
-    async choose(output, charTrue, charFalse, strTrue, strFalse, abortByWrongChar) {
+    async choose(output, charTrue, charFalse, msgTrue, msgFalse, abortOnWrongChar) {
         charTrue = charTrue.length > 1 ? charTrue.substring(0, 1) : charTrue;
         charFalse = charFalse.length > 1 ? charFalse.substring(0, 1) : charFalse;
         charTrue = charTrue.toLowerCase();
@@ -26,7 +26,7 @@ class PowerPrompt {
             stdin.on("keypress", (str, key) => {
                 let input = key.name.toString();
                 input = func.removeTabsAndBreaks(input);
-                if (abortByWrongChar) {
+                if (abortOnWrongChar) {
                     resolve(func.getChoose(input, charTrue, charFalse));
                 }
                 else {
@@ -40,7 +40,7 @@ class PowerPrompt {
         stdin.setRawMode(false);
         ansi.left(5);
         ansi.clearLineToEnd();
-        func.printChoose(result, strTrue, strFalse);
+        func.printChoose(result, msgTrue, msgFalse);
         return result;
     }
     async input(output) {
