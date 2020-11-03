@@ -37,12 +37,6 @@
         "selected":             "\u001b[36m",
         "title":                "\u001b[35m"
     },
-    "errors": [
-        {
-            "name":             "unknown_type",
-            "message":          "Unknown Type"
-        }
-    ],
     "terminal": {
         "length":               80
     }

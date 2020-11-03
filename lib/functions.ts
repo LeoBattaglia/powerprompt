@@ -27,14 +27,6 @@ export function getChoose(str:string, charTrue:string, charFalse:string):Boolean
     }
 }
 
-function getErrorMessage(name:string):string{
-    for(let error of config.errors){
-        if(error.name === name){
-            return "ERROR " + error.message;
-        }
-    }
-}
-
 export function log(output:string, color:string, newLine:Boolean):void{
     process.stdout.write(color + output + config.ansi.reset);
     if(newLine){
@@ -50,8 +42,8 @@ function logDefault(output):void{
     log(output, config.colors.default, true);
 }
 
-function logError(name:string, output):void{
-    log(getErrorMessage(name) + ": " + typeof output, config.colors.error, true);
+function logError(output):void{
+    log(output, config.colors.error, true);
 }
 
 function logInput(output):void{
@@ -142,7 +134,7 @@ function printType(output, callback):void{
             callback(output);
             break;
         default:
-            logError("unknown_type", output);
+            logError("Unknown Type: " + typeof output);
     }
 }
 
