@@ -31,7 +31,7 @@
         "command":              "\u001b[32m",
         "default":              "\u001b[37m",
         "error":                "\u001b[31m",
-        "input":                "\u001b[33m",
+        "input":                "\u001b[37m",
         "line":                 "\u001b[37m",
         "option":               "\u001b[33m",
         "selected":             "\u001b[36m",

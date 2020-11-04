@@ -87,7 +87,7 @@ pp.printError("Error-Text");
 ```
 
 ### printInput()
-Print output to stdout in input-color (yellow).
+Print output to stdout in input-color (white).
 #### Parameters:
 - output:string|number|boolean
 #### Use:
