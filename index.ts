@@ -10,6 +10,7 @@ export class PowerPrompt{
     constructor(){}
 
     close(exitProcess:boolean){
+        ansi.reset();
         func.closeStdin();
         if(exitProcess){
             process.exit(0);
@@ -53,6 +54,7 @@ export class PowerPrompt{
             });
         });
         let result = await inputStream;
+        ansi.reset();
         let input:string = result.toString();
         input = func.removeTabsAndBreaks(input);
         input = input.length > 1 ? input.trim() : input;
