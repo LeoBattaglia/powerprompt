@@ -1,4 +1,7 @@
 # PowerPrompt
+
+**--> Deprecated: This Repository is replaced by "Milena"**
+
 A simple and lightweight TypeScript-Class to create CLI-Applications on node.js.
 
 ## Installation
